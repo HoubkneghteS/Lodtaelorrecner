@@ -1,0 +1,74 @@
+
+	html {
+		background:navy;
+	}
+
+	div.bar {
+		height:1em;
+		font-size:0.9em;
+		color:white;
+		padding:0.25em;
+	}
+
+	td {
+		width:20%;
+	}
+
+	hr {
+		background: black;
+		height: 1.5px;
+		box-shadow: 3px 3px;
+	}
+
+	@media screen and (max-width: 1024px) {
+	
+		body {
+			font-size: 230%;
+		}
+		
+		button {
+			font-size: 1em;
+		}
+		
+		input {
+			height:1.5em;
+			font-size:1em;
+			width:50%;
+		}
+		
+		div.bar {
+			font-size:0.5em;
+		}
+		
+	}
+
+	div.box {
+		border:3px solid black;
+		overflow: hidden;
+		box-shadow: 4px 4px gray;
+		margin-bottom:5px;
+	}
+
+	body {
+		margin-left:2.5%;
+		margin-right:2.5%;
+		font-family:verdana;
+		padding:1em;
+		background:white;
+	}
+
+	div.y {
+		background:salmon;
+	}
+
+	div.a {
+		background:maroon;
+	}
+
+	div.m {
+		background:purple;
+	}
+
+	div.o {
+		background:navy;
+	}
