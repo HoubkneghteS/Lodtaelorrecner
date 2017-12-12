@@ -1,4 +1,3 @@
-//init
 var dRate = 7; //deaths per thousand people per year
 var bRate = 1.6; //children per woman
 var immigration = 110000; //immigrants per year
@@ -111,6 +110,11 @@ var pop = [
 	4000
 ];
 
+//inner html function
+function innerHtml(id, content) {
+	document.getElementById(id).innerHTML = content;
+}
+
 //sum for population
 function sum(start, end) {
 	var total = 0;
@@ -141,25 +145,25 @@ function dChange(number) {
 	start();
 }
 
-//renders
+//rendering the data
 function start() {
 	
 	//population tree
 	for(var i = 0; i < 100; i += 5) {
-			document.getElementById(i).innerHTML = sum(i, i+4) + ` (${i} - ${i+4})`;
-			document.getElementById(i).style.width = 20 + sum(i, i+4) / sum(0, pop.length) * 200 + "%";
+		document.getElementById(i).innerHTML = sum(i, i+4) + ` (${i} - ${i+4})`;
+		document.getElementById(i).style.width = 20 + sum(i, i+4) / sum(0, pop.length) * 200 + "%";
 	}
 	document.getElementById("100").innerHTML = pop[100] + " (100+)";
 	document.getElementById(i).style.width = 20 + pop[100] / sum(0, pop.length) * 200 + "%";
 
 	//overall stats
-	document.getElementById("death").innerHTML = "<b>Deaths:</b> " + deaths;
-	document.getElementById("birth").innerHTML = "<b>Births:</b> " + births;
-	document.getElementById("total").innerHTML = "<b>Population:</b> " + sum(0, pop.length);
-	document.getElementById("deathrate").innerHTML = "<b>Deathrate:</b> " + dRate.toFixed(1);
-	document.getElementById("birthrate").innerHTML = "<b>Birthrate:</b> " + bRate.toFixed(1);
-	document.getElementById("immigration").innerHTML = "<b>Immigration:</b> " + immigration;
-	document.getElementById("year").innerHTML = " - " + year;
+	innerHtml("death", "<b>Deaths:</b> " + deaths);
+	innerHtml("birth", "<b>Births:</b> " + births);
+	innerHtml("total", "<b>Population:</b> " + sum(0, pop.length));
+	innerHtml("deathrate", "<b>Deathrate:</b> " + dRate.toFixed(1));
+	innerHtml("birthrate", "<b>Birthrate:</b> " + bRate.toFixed(1));
+	innerHtml("immigration", "<b>Immigration:</b> " + immigration);
+	innerHtml("year", year)
 }
 
 //simulates 1 year
