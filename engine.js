@@ -17,7 +17,7 @@ var en = {
 	"deathrate":"Deathrate",
 	"birthrate":"Birthrate",
 	"immigration": "Immigration",
-	"poptree":"Population Tree",
+	"poppyramid":"Population Pyramid",
 	"stats":"Overall Stats",
 	"options":"Options",
 	"lang":"Language",
@@ -31,7 +31,7 @@ var de = {
 	"deathrate":"Sterberate",
 	"birthrate":"Geburtenrate",
 	"immigration": "Einwanderung",
-	"poptree":"Bevölkerungsbaum",
+	"poppyramid":"Bevölkerungspyramide",
 	"stats":"Gesamtstastiken",
 	"options":"Optionen",
 	"lang":"Sprache",
@@ -185,7 +185,7 @@ function start(lang) {
 	} else {
 		r = de;
 	}
-	innerHtml("poptree", r.poptree);
+	innerHtml("poppyramid", r.poppyramid);
 	innerHtml("stats", r.stats);
 	
 	innerHtml("y1", "1 " + r.year);
