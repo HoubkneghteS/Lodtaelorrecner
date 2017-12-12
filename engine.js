@@ -179,12 +179,9 @@ function dChange(number) {
 
 //stuff that only must be set up once
 function start(lang) {
-	if (lang == "en") {
-		//if language is english
-		r = en;
-	} else {
-		r = de;
-	}
+	if (lang == "en") r = en;
+	else r = de
+	
 	innerHtml("poppyramid", r.poppyramid);
 	innerHtml("stats", r.stats);
 	
