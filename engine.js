@@ -137,8 +137,7 @@ function imChange(number) {
 	start();
 }
 
-
-//changing birth rate
+//changing death rate
 function dChange(number) {
 	dRate += number;
 	if (dRate < 0) dRate = 0;
@@ -147,14 +146,13 @@ function dChange(number) {
 
 //rendering the data
 function start() {
-	
 	//population tree
 	for(var i = 0; i < 100; i += 5) {
-		document.getElementById(i).innerHTML = sum(i, i+4) + ` (${i} - ${i+4})`;
-		document.getElementById(i).style.width = 20 + sum(i, i+4) / sum(0, pop.length) * 200 + "%";
+		innerHtml(i, sum(i, i+4) + ` (${i} - ${i+4})`);
+		document.getElementById(i).style.width = 22 + sum(i, i+4) / sum(0, pop.length) * 200 + "%";
 	}
 	document.getElementById("100").innerHTML = pop[100] + " (100+)";
-	document.getElementById(i).style.width = 20 + pop[100] / sum(0, pop.length) * 200 + "%";
+	document.getElementById(i).style.width = 22 + pop[100] / sum(0, pop.length) * 200 + "%";
 
 	//overall stats
 	innerHtml("death", "<b>Deaths:</b> " + deaths);
@@ -190,7 +188,8 @@ function simulate() {
 	for(var i = 18; i < 41; i++) {
 		mothers += pop[i]/2;
 	}
-	pop[0] += Math.ceil(mothers * bRate / 21.8);
+	
+	pop[0] += Math.ceil(mothers * bRate / 21.8); //adds number to infant population
 	births = sum(0, pop.length) - deathPop; //calculates number of births
 	
 	//calculates immigration
