@@ -184,6 +184,7 @@ function start(lang) {
 	
 	innerHtml("poppyramid", r.poppyramid);
 	innerHtml("stats", r.stats);
+	innerHtml("options", r.options);
 	
 	innerHtml("y1", "1 " + r.year);
 	innerHtml("y2", "2 " + r.years);
@@ -192,6 +193,7 @@ function start(lang) {
 	innerHtml("birthrate2", r.birthrate);
 	innerHtml("deathrate2", r.deathrate);
 	innerHtml("immigration2", r.immigration);
+	innerHtml("lang", r.lang);
 	
 	innerHtml("credits", r.credits);
 	
