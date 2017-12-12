@@ -196,7 +196,7 @@ function simulate() {
 	births = sum(0, pop.length) - deathPop; //calculates number of births
 	
 	//calculates immigration
-	for(var i = 15; i <= 35; i++) {
+	for(var i = 20; i <= 40; i++) {
 		pop[i] += Math.round(immigration/20);
 	}
 	for(var i = 0; i <= 100; i++) {
