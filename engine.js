@@ -1,7 +1,9 @@
-var dRate = 7; //deaths per thousand people per year
-var bRate = 1.6; //children per woman
+var dRate = 8; //deaths per thousand people per year
+var bRate = 2.1; //children per woman
 var immigration = 110000; //immigrants per year
 var year = 2017; //starting year of simulation
+var lFertilityLimit = 20; //age where simulated people start becoming mothers
+var uFertilityLimit = 40; //ending age for this process
 var deaths = 0;
 var births = 0;
 
@@ -151,7 +153,7 @@ function start() {
 		innerHtml(i, sum(i, i+4) + ` (${i} - ${i+4})`);
 		document.getElementById(i).style.width = 22 + sum(i, i+4) / sum(0, pop.length) * 200 + "%";
 	}
-	document.getElementById("100").innerHTML = pop[100] + " (100+)";
+	innerHtml("100", pop[100] + " (100+)");
 	document.getElementById(i).style.width = 22 + pop[100] / sum(0, pop.length) * 200 + "%";
 
 	//overall stats
@@ -185,11 +187,12 @@ function simulate() {
 	
 	//simulates births
 	var mothers = 0;
-	for(var i = 18; i < 41; i++) {
+	
+	for(var i = lFertilityLimit; i <= uFertilityLimit; i++) {
 		mothers += pop[i]/2;
 	}
 	
-	pop[0] += Math.ceil(mothers * bRate / 21.8); //adds number to infant population
+	pop[0] += Math.ceil(mothers * bRate / (uFertilityLimit - lFertilityLimit)); //adds number to infant population
 	births = sum(0, pop.length) - deathPop; //calculates number of births
 	
 	//calculates immigration
