@@ -1,25 +1,5 @@
 
-	html {
-		background:navy;
-	}
-
-	div.bar {
-		height:1em;
-		font-size:0.9em;
-		color:white;
-		padding:0.25em;
-	}
-
-	td {
-		width:20%;
-	}
-
-	hr {
-		background: black;
-		height: 1.5px;
-		box-shadow: 3px 3px;
-	}
-
+	/* for mobile support */
 	@media screen and (max-width: 1024px) {
 	
 		body {
@@ -42,9 +22,31 @@
 		
 	}
 
+	html {
+		background:navy;
+	}
+
+	div.bar {
+		height:1em;
+		font-size:0.9em;
+		color:white;
+		padding:0.25em;
+	}
+
+	td {
+		width:20%;
+	}
+
+	hr {
+		background: black;
+		height: 1.5px;
+		box-shadow: 3px 3px;
+	}
+	
 	div.box {
 		border:3px solid black;
 		overflow: hidden;
+		background:white;
 		box-shadow: 4px 4px gray;
 		margin-bottom:5px;
 	}
@@ -53,8 +55,8 @@
 		margin-left:2.5%;
 		margin-right:2.5%;
 		font-family:verdana;
-		padding:1em;
-		background:white;
+		padding:1.1em;
+		background:#eee;
 	}
 
 	div.y {
