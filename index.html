@@ -3,11 +3,11 @@
 	<script src="engine.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Lodtaelorrecner</title>
-	<body onLoad="start()">
+	<body onLoad="start('en')">
 		<main>
 			<h1>Lodtaelorrecner</h1>
 			<hr />
-			<h2>Population Tree <span id="year"></span></h2>
+			<h2><span id="poptree">Population Tree</span> - <span id="year"></span></h2>
 			<div class="box">
 				<div class="bar o" id="100"></div>
 				<div class="bar o" id="95"></div>
@@ -31,7 +31,7 @@
 				<div class="bar y" id="5"></div>
 				<div class="bar y" id="0"></div>
 			</div>
-			<h2>Overall Stats</h2>
+			<h2 id="stats">Overall Stats</h2>
 			<table>
 				<td>
 					<div id="death"></div>
@@ -45,25 +45,30 @@
 				</td>
 			</table>
 			<h2>Options</h2>
-			<button onClick="simulate()">1 Year</button>
-			<button onClick="for(i = 0; i < 2; i++){simulate()}">2 Years</button>
+			<button id="y1" onClick="simulate()">1 Year</button>
+			<button id="y2" onClick="for(i = 0; i < 2; i++){simulate()}">2 Years</button>
+			<button id="y3" onClick="for(i = 0; i < 3; i++){simulate()}">3 Years</button>
 			<br/>
-			<b>Birthrate:</b>
+			<b id="birthrate2">Birthrate</b>
 			<button onClick="bChange(-1)">-1</button>
 			<button onClick="bChange(-0.1)">-0.1</button>
 			<button onClick="bChange(0.1)">+0.1</button>
 			<button onClick="bChange(1)">+1</button>
 			<br/>
-			<b>Deathrate:</b>
+			<b id="deathrate2">Deathrate</b>
 			<button onClick="dChange(-1)">-1</button>
 			<button onClick="dChange(-0.1)">-0.1</button>
 			<button onClick="dChange(0.1)">+0.1</button>
 			<button onClick="dChange(1)">+1</button>
 			<br/>
-			<b>Immigration:</b>
+			<b id="immigration2">Immigration</b>
 			<input type="number" onchange="imChange(this.value)"/>
+			<br/>
+			<b id="lang">Language</b>
+			<button onClick="start('en')">English</button>
+			<button onClick="start('de')">Deutsch</button>
 		</main>
 		<hr/>
-		<sub><small>by HoubkneghteS (Adam Simons)</small></sub>
+		<sub><small id="credits">by HoubkneghteS (Adam Simons)</small></sub>
 	</body>
 </html>

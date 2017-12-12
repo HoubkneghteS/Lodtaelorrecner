@@ -55,7 +55,7 @@
 	@media screen and (max-width: 1024px) {
 	
 		body {
-			font-size: 200%;
+			font-size: 220%;
 		}
 		
 		button {
@@ -69,7 +69,7 @@
 		}
 		
 		div.bar {
-			font-size:50%;
+			font-size:53%;
 			height:auto;
 		}
 		

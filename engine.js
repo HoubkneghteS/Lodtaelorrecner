@@ -7,6 +7,37 @@ var uFertilityLimit = 40; //ending age for this process
 var deaths = 0;
 var births = 0;
 
+//lang data:
+var en = {
+	"year":"Year",
+	"years":"Years",
+	"deaths":"Deaths",
+	"births":"Births",
+	"pop":"Population",
+	"deathrate":"Deathrate",
+	"birthrate":"Birthrate",
+	"immigration": "Immigration",
+	"poptree":"Population Tree",
+	"stats":"Overall Stats",
+	"options":"Options",
+	"lang":"Language",
+	"credits":"by HoubkneghteS (Adam Simons)"};
+var de = {
+	"year":"Jahr",
+	"years":"Jahre",
+	"deaths":"Gestorbene",
+	"births":"Geborene",
+	"pop":"Bevölkerung",
+	"deathrate":"Sterberate",
+	"birthrate":"Geburtenrate",
+	"immigration": "Einwanderung",
+	"poptree":"Bevölkerungsbaum",
+	"stats":"Gesamtstastiken",
+	"options":"Optionen",
+	"lang":"Sprache",
+	"credits":"von HoubkneghteS (Adam Simons)"};
+var r = en;
+
 //population array -- year by year
 var pop = [
 	680000,
@@ -130,40 +161,64 @@ function sum(start, end) {
 function bChange(number) {
 	bRate += number;
 	if (bRate < 0) bRate = 0;
-	start();
+	render();
 }
 
 //changing immigration
 function imChange(number) {
 	immigration = number;
-	start();
+	render();
 }
 
 //changing death rate
 function dChange(number) {
 	dRate += number;
 	if (dRate < 0) dRate = 0;
-	start();
+	render();
+}
+
+//stuff that only must be set up once
+function start(lang) {
+	if (lang == "en") {
+		//if language is english
+		r = en;
+	} else {
+		r = de;
+	}
+	innerHtml("poptree", r.poptree);
+	innerHtml("stats", r.stats);
+	
+	innerHtml("y1", "1 " + r.year);
+	innerHtml("y2", "2 " + r.years);
+	innerHtml("y3", "3 " + r.years);
+	
+	innerHtml("birthrate2", r.birthrate);
+	innerHtml("deathrate2", r.deathrate);
+	innerHtml("immigration2", r.immigration);
+	
+	innerHtml("credits", r.credits);
+	
+	render(); //renders dynamic values
 }
 
 //rendering the data
-function start() {
+function render() {
 	//population tree
 	for(var i = 0; i < 100; i += 5) {
 		innerHtml(i, sum(i, i+4) + ` (${i} - ${i+4})`);
-		document.getElementById(i).style.width = 22 + sum(i, i+4) / sum(0, pop.length) * 200 + "%";
+		document.getElementById(i).style.width = 20 + sum(i, i+4) / sum(0, pop.length) * 220 + "%";
 	}
 	innerHtml("100", pop[100] + " (100+)");
-	document.getElementById(i).style.width = 22 + pop[100] / sum(0, pop.length) * 200 + "%";
+	document.getElementById(i).style.width = 20 + pop[100] / sum(0, pop.length) * 220 + "%";
 
 	//overall stats
-	innerHtml("death", "<b>Deaths:</b> " + deaths);
-	innerHtml("birth", "<b>Births:</b> " + births);
-	innerHtml("total", "<b>Population:</b> " + sum(0, pop.length));
-	innerHtml("deathrate", "<b>Deathrate:</b> " + dRate.toFixed(1));
-	innerHtml("birthrate", "<b>Birthrate:</b> " + bRate.toFixed(1));
-	innerHtml("immigration", "<b>Immigration:</b> " + immigration);
-	innerHtml("year", year)
+	innerHtml("death", `<b>${r.deaths}:</b> ` + deaths);
+	innerHtml("birth", `<b>${r.births}:</b> ` + births);
+	innerHtml("total", `<b>${r.pop}:</b> ` + sum(0, pop.length));
+	innerHtml("deathrate", `<b>${r.deathrate}:</b> ` + dRate.toFixed(1));
+	innerHtml("birthrate", `<b>${r.birthrate}:</b> ` + bRate.toFixed(1));
+	innerHtml("immigration", `<b>${r.immigration}:</b> ` + immigration);
+	innerHtml("year", year);
 }
 
 //simulates 1 year
@@ -204,5 +259,5 @@ function simulate() {
 	}
 	
 	year++; //increments year
-	start();
+	render();
 }
