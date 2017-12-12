@@ -176,7 +176,8 @@ function simulate() {
 	}
 	
 	var oldPop = sum(0, pop.length);
-
+	
+	//polynomial death rate equation
 	for(var i = 0; i <= 100; i++) {
 		pop[i] = Math.floor(pop[i] * (1 - dRate * (0.0000000000000015 *  Math.pow(i-18, 7) + dRate * 0.00007)));
 	}
