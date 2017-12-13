@@ -36,7 +36,6 @@ var de = {
 	"options":"Optionen",
 	"lang":"Sprache",
 	"credits":"von HoubkneghteS (Adam Simons)"};
-var r = en;
 
 //population array -- year by year
 var pop = [
