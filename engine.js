@@ -187,7 +187,7 @@ function start(lang) {
 	
 	innerHtml("y1", `1 ${r.year}`);
 	innerHtml("y2", `2 ${r.years}`);
-	innerHtml("y3", `3 ${r.years}`);
+	innerHtml("y5", `5 ${r.years}`);
 	
 	innerHtml("birthrate2", r.birthrate);
 	innerHtml("deathrate2", r.deathrate);
@@ -219,43 +219,46 @@ function render() {
 	innerHtml("year", year);
 }
 
-//simulates 1 year
-function simulate() {
+//simulates years
+function simulate(x) {
 	
-	//ages population by 1 year
-	for(var i = 99; i >= 0; i--){
-		pop[i+1] += pop[i];
-		pop[i] = 0;
+	for (var n = 0; n < x; n++) {
+		//ages population by 1 year
+		for(var i = 99; i >= 0; i--){
+			pop[i+1] += pop[i];
+			pop[i] = 0;
+		}
+		
+		var oldPop = sum(0, pop.length);
+		
+		//polynomial death rate equation
+		for(var i = 0; i <= 100; i++) {
+			pop[i] = Math.floor(pop[i] * (1 - dRate * (0.0000000000000015 *  Math.pow(i-18, 7) + dRate * 0.00007)));
+		}
+		
+		deaths = oldPop - sum(0, pop.length); //calculates number of deaths
+		var deathPop = sum(0, pop.length);
+		
+		//simulates births
+		var mothers = 0;
+		
+		for(var i = lFertilityLimit; i <= uFertilityLimit; i++) {
+			mothers += pop[i]/2;
+		}
+		
+		pop[0] += Math.ceil(mothers * bRate / (uFertilityLimit - lFertilityLimit)); //adds number to infant population
+		births = sum(0, pop.length) - deathPop; //calculates number of births
+		
+		//calculates immigration
+		for(var i = 20; i <= 40; i++) {
+			pop[i] += Math.round(immigration/20);
+		}
+		for(var i = 0; i <= 100; i++) {
+			if (pop[i] < 0) pop[i] = 0; //extreme case fixer
+		}
+		
+		year++; //increments year
+		
 	}
-	
-	var oldPop = sum(0, pop.length);
-	
-	//polynomial death rate equation
-	for(var i = 0; i <= 100; i++) {
-		pop[i] = Math.floor(pop[i] * (1 - dRate * (0.0000000000000015 *  Math.pow(i-18, 7) + dRate * 0.00007)));
-	}
-	
-	deaths = oldPop - sum(0, pop.length); //calculates number of deaths
-	var deathPop = sum(0, pop.length);
-	
-	//simulates births
-	var mothers = 0;
-	
-	for(var i = lFertilityLimit; i <= uFertilityLimit; i++) {
-		mothers += pop[i]/2;
-	}
-	
-	pop[0] += Math.ceil(mothers * bRate / (uFertilityLimit - lFertilityLimit)); //adds number to infant population
-	births = sum(0, pop.length) - deathPop; //calculates number of births
-	
-	//calculates immigration
-	for(var i = 20; i <= 40; i++) {
-		pop[i] += Math.round(immigration/20);
-	}
-	for(var i = 0; i <= 100; i++) {
-		if (pop[i] < 0) pop[i] = 0; //extreme case fixer
-	}
-	
-	year++; //increments year
 	render();
 }

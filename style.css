@@ -4,9 +4,11 @@
 
 	div.bar {
 		height:1.1em;
+		font-size:0.9em;
 		color:black;
 		margin:auto;
-		text-indent:-8%;
+		text-align:center;
+		white-space:nowrap;
 		padding-bottom:0.3em;
 	}
 
