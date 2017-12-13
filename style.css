@@ -6,6 +6,9 @@
 		height:1.1em;
 		font-size:0.9em;
 		color:black;
+		text-align:left;
+		margin:auto;
+		font-size:auto;
 		white-space:nowrap;
 		padding:0.25em;
 	}
@@ -19,6 +22,15 @@
 		height: 1.5px;
 		box-shadow: 3px 3px;
 	}
+	
+	#plabel {
+	  opacity: 0;
+	}
+	
+	div.bar:hover #plabel {
+	  opacity: 1;
+	}
+	
 	
 	div.box {
 		border:3px solid black;

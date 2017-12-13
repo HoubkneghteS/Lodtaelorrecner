@@ -203,11 +203,11 @@ function start(lang) {
 function render() {
 	//population tree
 	for(var i = 0; i < 100; i += 5) {
-		innerHtml(i, sum(i, i+4) + ` (${i}-${i+4})`);
-		document.getElementById(i).style.width = 3 + sum(i, i+4) / sum(0, pop.length) * 300 + "%";
+		innerHtml(i, "<span id='plabel'>" + sum(i, i+4) + ` (${i}-${i+4})` + "</span>");
+		document.getElementById(i).style.width = 6 + sum(i, i+4) / sum(0, pop.length) * 500 + "%";
 	}
-	innerHtml("100", pop[100] + " (100+)");
-	document.getElementById(i).style.width = 3 + pop[100] / sum(0, pop.length) * 300 + "%";
+	innerHtml("100", "<span id='plabel'>" + pop[100] + " (100+)</span>");
+	document.getElementById(i).style.width = 6 + pop[100] / sum(0, pop.length) * 500 + "%";
 
 	//overall stats
 	innerHtml("death", `<b>${r.deaths}:</b> ${deaths}`);
