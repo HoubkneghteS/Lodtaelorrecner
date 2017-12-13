@@ -3,9 +3,10 @@
 	}
 
 	div.bar {
-		height:1em;
+		height:1.1em;
 		font-size:0.9em;
-		color:white;
+		color:black;
+		white-space:nowrap;
 		padding:0.25em;
 	}
 
@@ -21,34 +22,33 @@
 	
 	div.box {
 		border:3px solid black;
-		overflow: hidden;
 		background:white;
 		box-shadow: 4px 4px gray;
 		margin-bottom:5px;
 	}
 
 	body {
-		margin-left:2.5%;
-		margin-right:2.5%;
+		margin-left:2%;
+		margin-right:2%;
 		font-family:verdana;
-		padding:1.1em;
+		padding:1em;
 		background:#eee;
 	}
 
 	div.y {
-		background:salmon;
+		background:#f88;
 	}
 
 	div.a {
-		background:maroon;
+		background:#c8e;
 	}
 
 	div.m {
-		background:purple;
+		background:#88f;
 	}
 
 	div.o {
-		background:navy;
+		background:turquoise;
 	}
 	
 	/* for mobile support */
@@ -69,8 +69,7 @@
 		}
 		
 		div.bar {
-			font-size:53%;
-			height:auto;
+			font-size:70%;
 		}
 		
 	}
