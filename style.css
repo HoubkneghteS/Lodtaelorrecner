@@ -4,13 +4,10 @@
 
 	div.bar {
 		height:1.1em;
-		font-size:0.9em;
 		color:black;
-		text-align:left;
 		margin:auto;
-		font-size:auto;
-		white-space:nowrap;
-		padding:0.25em;
+		text-indent:-8%;
+		padding-bottom:0.3em;
 	}
 
 	td {
