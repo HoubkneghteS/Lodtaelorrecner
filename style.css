@@ -23,6 +23,7 @@
 	div.box {
 		border:3px solid black;
 		background:white;
+		overflow:immigration;
 		box-shadow: 4px 4px gray;
 		margin-bottom:5px;
 	}
