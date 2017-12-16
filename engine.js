@@ -147,6 +147,11 @@ function innerHtml(id, content) {
 	document.getElementById(id).innerHTML = content;
 }
 
+//width thml function
+function widthHtml(id, width) {
+	document.getElementById(id).style.width = width + "%";
+}
+
 //sum for population
 function sum(start, end) {
 	var total = 0;
@@ -204,10 +209,10 @@ function render() {
 	//population tree
 	for(var i = 0; i < 100; i += 5) {
 		innerHtml(i , "<span id='plabel'>" + sum(i, i+4) + ` (${i}-${i+4})` + "</span>");
-		document.getElementById(i).style.width = 5 + sum(i, i+4) / sum(0, pop.length) * 500 + "%";
+		widthHtml(i, 1 + sum(i, i+4) / sum(0, pop.length) * 350);
 	}
 	innerHtml("100", "<span id='plabel'>" + pop[100] + " (100+)</span>");
-	document.getElementById(i).style.width = 5 + pop[100] / sum(0, pop.length) * 500 + "%";
+	widthHtml("100", 1 + pop[100] / sum(0, pop.length) * 350);
 
 	//overall stats
 	innerHtml("death", `<b>${r.deaths}:</b> ${deaths}`);

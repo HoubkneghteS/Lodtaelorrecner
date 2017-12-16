@@ -27,7 +27,6 @@
 		border: 2px solid #DFDFDF;
 		top: 0px;
 		position: relative;
-		margin-left: -0px;
 		margin-top: 300px;
 		background:#f8f8f8;
 	}
@@ -73,7 +72,7 @@
 	@media screen and (max-width: 1024px) {
 	
 		body {
-			font-size: 210%;
+			font-size: 200%;
 		}
 		
 		button {
@@ -87,14 +86,7 @@
 		}
 		
 		div.bar {
-			font-size:70%;
-		}
-		
-		#plabel {
-			position:absolute;
-			margin-top: 550px;
-			text-align:center;
-			margin-left: -8%;
+			font-size:75%;
 		}
 		
 	}
