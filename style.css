@@ -23,11 +23,17 @@
 	}
 	
 	#plabel {
-	  opacity: 0;
+		opacity: 0;
+		border: 2px solid #DFDFDF;
+		top: 0px;
+		position: relative;
+		margin-left: -0px;
+		margin-top: 300px;
+		background:#f8f8f8;
 	}
 	
 	div.bar:hover #plabel {
-	  opacity: 1;
+	  opacity: 0.75;
 	}
 	
 	
@@ -48,19 +54,19 @@
 	}
 
 	div.y {
-		background:#f88;
+		background:maroon;
 	}
 
 	div.a {
-		background:#c8e;
+		background: #93a;
 	}
 
 	div.m {
-		background:#88f;
+		background:blue;
 	}
 
 	div.o {
-		background:turquoise;
+		background:teal;
 	}
 	
 	/* for mobile support */
@@ -82,6 +88,13 @@
 		
 		div.bar {
 			font-size:70%;
+		}
+		
+		#plabel {
+			position:absolute;
+			margin-top: 550px;
+			text-align:center;
+			margin-left: -9%;
 		}
 		
 	}
