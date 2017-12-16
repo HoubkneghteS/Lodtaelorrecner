@@ -3,7 +3,7 @@
 	}
 
 	div.bar {
-		height:1.1em;
+		height:1.3em;
 		font-size:0.9em;
 		color:black;
 		margin:auto;
@@ -54,11 +54,11 @@
 	}
 
 	div.y {
-		background:maroon;
+		background:#b11;
 	}
 
 	div.a {
-		background: #93a;
+		background:purple;
 	}
 
 	div.m {
@@ -73,11 +73,11 @@
 	@media screen and (max-width: 1024px) {
 	
 		body {
-			font-size: 220%;
+			font-size: 210%;
 		}
 		
 		button {
-			font-size: 1em;
+			font-size: 1.2em;
 		}
 		
 		input {
@@ -94,7 +94,7 @@
 			position:absolute;
 			margin-top: 550px;
 			text-align:center;
-			margin-left: -9%;
+			margin-left: -8%;
 		}
 		
 	}
