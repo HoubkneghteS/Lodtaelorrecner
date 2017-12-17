@@ -45,8 +45,8 @@
 	}
 
 	body {
-		margin-left:2%;
-		margin-right:2%;
+		margin-left:1%;
+		margin-right:1%;
 		font-family:verdana;
 		padding:1em;
 		background:#eee;
@@ -68,7 +68,7 @@
 		background:teal;
 	}
 	
-	/* for mobile support */
+	/* mobile support */
 	@media screen and (max-width: 1024px) {
 	
 		body {
@@ -87,6 +87,17 @@
 		
 		div.bar {
 			font-size:75%;
+		}
+		
+	}
+	
+	/* huge screens */
+	@media screen and (min-width: 1400px) {
+	
+		body {
+			width:1344px;
+			margin:auto;
+			margin-top:9px;
 		}
 		
 	}
