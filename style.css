@@ -31,6 +31,7 @@
 		background:#f8f8f8;
 	}
 	
+	/* hovering population textbox */
 	div.bar:hover #plabel {
 	  opacity: 0.75;
 	}
