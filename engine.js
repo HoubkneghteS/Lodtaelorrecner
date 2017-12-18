@@ -1,11 +1,11 @@
-var dRate = 8; //deaths per thousand people per year
-var bRate = 1.6; //children per woman
-var immigration = 110000; //immigrants per year
-var year = 2017; //starting year of simulation
-var lFertilityLimit = 20; //age where simulated people start becoming mothers
-var uFertilityLimit = 40; //ending age for this process
-var deaths = 0;
-var births = 0;
+var dRate = 8, //deaths per thousand people per year
+	bRate = 1.6, //children per woman
+	immigration = 110000, //immigrants per year
+	year = 2017, //starting year of simulation
+	lFertilityLimit = 20,//age where simulated people start becoming mothers
+	uFertilityLimit = 40, //ending age for this process
+	deaths = 0,
+	births = 0;
 
 //lang data:
 var en = {
