@@ -8,7 +8,7 @@ var dRate = 8, //deaths per thousand people per year
 	births = 0;
 
 //lang data:
-var en = {
+const en = {
 	"year": "Year",
 	"years": "Years",
 	"deaths": "Deaths",
@@ -22,37 +22,37 @@ var en = {
 	"options": "Options",
 	"lang": "Language",
 	"credits": "by HoubkneghteS (Adam Simons)"
-};
-var de = {
-	"year": "Jahr",
-	"years": "Jahre",
-	"deaths": "Gestorbene",
-	"births": "Geborene",
-	"pop": "Bevölkerung",
-	"deathrate": "Sterberate",
-	"birthrate": "Geburtenrate",
-	"immigration": "Einwanderung",
-	"poppyramid": "Bevölkerungspyramide",
-	"stats": "Gesamtstatistiken",
-	"options": "Optionen",
-	"lang": "Sprache",
-	"credits": "von HoubkneghteS (Adam Simons)"
-};
-var ni = {
-	"year": "Jír",
-	"years": "Jírs",
-	"deaths": "Gestarvenets",
-	"births": "Gebornets",
-	"pop": "Lodtael",
-	"deathrate": "Dodraet",
-	"birthrate": "Geberþraet",
-	"immigration": "Immegratjon",
-	"poppyramid": "Lodtaeldíagram",
-	"stats": "Geþerinfos",
-	"options": "Optjons",
-	"lang": "Spagh",
-	"credits": "fom HoubkneghteS (Adam Simons)"
-};
+},
+	de = {
+		"year": "Jahr",
+		"years": "Jahre",
+		"deaths": "Gestorbene",
+		"births": "Geborene",
+		"pop": "Bevölkerung",
+		"deathrate": "Sterberate",
+		"birthrate": "Geburtenrate",
+		"immigration": "Einwanderung",
+		"poppyramid": "Bevölkerungspyramide",
+		"stats": "Gesamtstatistiken",
+		"options": "Optionen",
+		"lang": "Sprache",
+		"credits": "von HoubkneghteS (Adam Simons)"
+	},
+	ni = {
+		"year": "Jír",
+		"years": "Jírs",
+		"deaths": "Gestarvenets",
+		"births": "Gebornets",
+		"pop": "Lodtael",
+		"deathrate": "Dodraet",
+		"birthrate": "Geberþraet",
+		"immigration": "Immegratjon",
+		"poppyramid": "Lodtaeldíagram",
+		"stats": "Geþerinfos",
+		"options": "Optjons",
+		"lang": "Spagh",
+		"credits": "fom HoubkneghteS (Adam Simons)"
+	};
 
 //population array -- year by year
 var pop = [
@@ -171,8 +171,10 @@ function widthHtml(id, width) {
 
 //sum for population
 function sum(start, end) {
+	var sumStart = start || 0;
+	var sumEnd = end || pop.length;
 	var total = 0;
-	for (var i = start; i < end; i++) {
+	for (var i = sumStart; i < sumEnd; i++) {
 		total = total + pop[i];
 	}
 	return total;
@@ -235,7 +237,7 @@ function render() {
 	//overall stats
 	innerHtml("death", `<b>${r.deaths}:</b> ${deaths}`);
 	innerHtml("birth", `<b>${r.births}:</b> ${births}`);
-	innerHtml("total", `<b>${r.pop}:</b> ${sum(0, pop.length)}`);
+	innerHtml("total", `<b>${r.pop}:</b> ${sum()}`);
 	innerHtml("drate", `<b>${r.deathrate}:</b> ${dRate.toFixed(1)}`);
 	innerHtml("brate", `<b>${r.birthrate}:</b> ${bRate.toFixed(1)}`);
 	innerHtml("immigration", `<b>${r.immigration}:</b> ${immigration}`);
@@ -244,7 +246,7 @@ function render() {
 
 //simulates years
 function simulate(x) {
-	
+
 	for (var n = 0; n < x; n++) {
 		//ages population by 1 year
 		for (var i = 99; i >= 0; i--) {
