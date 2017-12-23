@@ -33,10 +33,25 @@ var de = {
 	"birthrate": "Geburtenrate",
 	"immigration": "Einwanderung",
 	"poppyramid": "Bevölkerungspyramide",
-	"stats": "Gesamtstastiken",
+	"stats": "Gesamtstatistiken",
 	"options": "Optionen",
 	"lang": "Sprache",
 	"credits": "von HoubkneghteS (Adam Simons)"
+};
+var ni = {
+	"year": "Jír",
+	"years": "Jírs",
+	"deaths": "Gestarvenets",
+	"births": "Gebornets",
+	"pop": "Lodtael",
+	"deathrate": "Dodraet",
+	"birthrate": "Geberþraet",
+	"immigration": "Immegratjon",
+	"poppyramid": "Lodtaeldíagram",
+	"stats": "Geþerinfos",
+	"options": "Optjons",
+	"lang": "Spagh",
+	"credits": "fom HoubkneghteS (Adam Simons)"
 };
 
 //population array -- year by year
@@ -186,7 +201,8 @@ function dChange(number) {
 //stuff that only must be set up once
 function start(lang) {
 	if (lang == "en") r = en;
-	else r = de
+	else if (lang == "de") r = de;
+	else r = ni;
 
 	innerHtml("poppyramid", r.poppyramid);
 	innerHtml("stats", r.stats);
@@ -228,7 +244,7 @@ function render() {
 
 //simulates years
 function simulate(x) {
-
+	
 	for (var n = 0; n < x; n++) {
 		//ages population by 1 year
 		for (var i = 99; i >= 0; i--) {
