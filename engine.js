@@ -41,7 +41,7 @@ const en = {
 	ni = {
 		"year": "Jír",
 		"years": "Jírs",
-		"deaths": "Gestarvenets",
+		"deaths": "Gedodtets",
 		"births": "Gebornets",
 		"pop": "Lodtael",
 		"deathrate": "Dodraet",
