@@ -229,10 +229,10 @@ function render() {
 	//population tree
 	for (var i = 0; i < 100; i += 5) {
 		innerHtml(i, "<span id='plabel'>" + sum(i, i + 4) + ` (${i}-${i + 4})` + "</span>");
-		widthHtml(i, 1 + sum(i, i + 4) / sum(0, pop.length) * 350);
+		widthHtml(i, (sum(i, i + 4) > 0) ? 1 + sum(i, i + 4) / sum(0, pop.length) * 350 : "1")
 	}
 	innerHtml("100", "<span id='plabel'>" + pop[100] + " (100+)</span>");
-	widthHtml("100", 1 + pop[100] / sum(0, pop.length) * 350);
+	widthHtml("100", (pop[100] > 0) ? 1 + pop[100] / sum(0, pop.length) * 350 : "1");
 
 	//overall stats
 	innerHtml("death", `<b>${r.deaths}:</b> ${deaths}`);
