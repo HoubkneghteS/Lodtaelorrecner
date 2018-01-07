@@ -8,22 +8,24 @@ var dRate = 8, //deaths per thousand people per year
 	births = 0;
 
 //lang data:
-const LangData = function(year, years, deaths, births, pop, deathrate, birthrate, immigration, pyramid, stats, options, lang, credits) {
-	this.year = year;
-	this.years = years;
-	this.deaths = deaths;
-	this.births = births;
-	this.pop = pop;
-	this.deathrate = deathrate;
-	this.birthrate = birthrate;
-	this.immigration = immigration;
-	this.pyramid = pyramid;
-	this.stats = stats;
-	this.options = options;
-	this.credits = credits;
+class LangData {
+	constructor(year, years, deaths, births, pop, deathrate, birthrate, immigration, pyramid, stats, options, lang, credits) {
+		this.year = year;
+		this.years = years;
+		this.deaths = deaths;
+		this.births = births;
+		this.pop = pop;
+		this.deathrate = deathrate;
+		this.birthrate = birthrate;
+		this.immigration = immigration;
+		this.pyramid = pyramid;
+		this.stats = stats;
+		this.options = options;
+		this.credits = credits;
+	}
 }
 
-const en = new LangData(
+var en = new LangData(
 	"Year",
 	"Years",
 	"Deaths",
@@ -37,37 +39,37 @@ const en = new LangData(
 	"Options",
 	"Language",
 	"by HoubkneghteS (Adam Simons)"
-),
-	de = new LangData(
-		"Jahr",
-		"Jahre",
-		"Gestorbene",
-		"Geborene",
-		"Bevölkerung",
-		"Sterberate",
-		"Geburtenrate",
-		"Einwanderung",
-		"Bevölkerungspyramide",
-		"Gesamtstatistiken",
-		"Optionen",
-		"Sprache",
-		"von HoubkneghteS (Adam Simons)"
-	),
-	ni = new LangData(
-		"Jír",
-		"Jírs",
-		"Gedodtets",
-		"Gebornets",
-		"Lodtael",
-		"Dodraet",
-		"Geberþraet",
-		"Immegratjon",
-		"Lodtaeldíagram",
-		"Geþerinfos",
-		"Optjons",
-		"Spagh",
-		"fom HoubkneghteS (Adam Simons)"
-	);
+);
+var de = new LangData(
+	"Jahr",
+	"Jahre",
+	"Gestorbene",
+	"Geborene",
+	"Bevölkerung",
+	"Sterberate",
+	"Geburtenrate",
+	"Einwanderung",
+	"Bevölkerungspyramide",
+	"Gesamtstatistiken",
+	"Optionen",
+	"Sprache",
+	"von HoubkneghteS (Adam Simons)"
+);
+ni = new LangData(
+	"Jír",
+	"Jírs",
+	"Gedodtets",
+	"Gebornets",
+	"Lodtael",
+	"Dodraet",
+	"Geberþraet",
+	"Immegratjon",
+	"Lodtaeldíagram",
+	"Geþerinfos",
+	"Optjons",
+	"Spagh",
+	"fom HoubkneghteS (Adam Simons)"
+);
 
 //population array -- year by year
 var pop = [
