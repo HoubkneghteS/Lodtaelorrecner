@@ -8,51 +8,66 @@ var dRate = 8, //deaths per thousand people per year
 	births = 0;
 
 //lang data:
-const en = {
-	"year": "Year",
-	"years": "Years",
-	"deaths": "Deaths",
-	"births": "Births",
-	"pop": "Population",
-	"deathrate": "Fatality Rate",
-	"birthrate": "Fertility Rate",
-	"immigration": "Immigration",
-	"poppyramid": "Population Pyramid",
-	"stats": "Overall Stats",
-	"options": "Options",
-	"lang": "Language",
-	"credits": "by HoubkneghteS (Adam Simons)"
-},
-	de = {
-		"year": "Jahr",
-		"years": "Jahre",
-		"deaths": "Gestorbene",
-		"births": "Geborene",
-		"pop": "Bevölkerung",
-		"deathrate": "Sterberate",
-		"birthrate": "Geburtenrate",
-		"immigration": "Einwanderung",
-		"poppyramid": "Bevölkerungspyramide",
-		"stats": "Gesamtstatistiken",
-		"options": "Optionen",
-		"lang": "Sprache",
-		"credits": "von HoubkneghteS (Adam Simons)"
-	},
-	ni = {
-		"year": "Jír",
-		"years": "Jírs",
-		"deaths": "Gedodtets",
-		"births": "Gebornets",
-		"pop": "Lodtael",
-		"deathrate": "Dodraet",
-		"birthrate": "Geberþraet",
-		"immigration": "Immegratjon",
-		"poppyramid": "Lodtaeldíagram",
-		"stats": "Geþerinfos",
-		"options": "Optjons",
-		"lang": "Spagh",
-		"credits": "fom HoubkneghteS (Adam Simons)"
-	};
+const LangData = function(year, years, deaths, births, pop, deathrate, birthrate, immigration, pyramid, stats, options, lang, credits) {
+	this.year = year;
+	this.years = years;
+	this.deaths = deaths;
+	this.births = births;
+	this.pop = pop;
+	this.deathrate = deathrate;
+	this.birthrate = birthrate;
+	this.immigration = immigration;
+	this.pyramid = pyramid;
+	this.stats = stats;
+	this.options = options;
+	this.credits = credits;
+}
+
+const en = new LangData(
+	"Year",
+	"Years",
+	"Deaths",
+	"Births",
+	"Population",
+	"Fatality Rate",
+	"Fertility Rate",
+	"Immigration",
+	"Population Pyramid",
+	"Overall Stats",
+	"Options",
+	"Language",
+	"by HoubkneghteS (Adam Simons)"
+),
+	de = new LangData(
+		"Jahr",
+		"Jahre",
+		"Gestorbene",
+		"Geborene",
+		"Bevölkerung",
+		"Sterberate",
+		"Geburtenrate",
+		"Einwanderung",
+		"Bevölkerungspyramide",
+		"Gesamtstatistiken",
+		"Optionen",
+		"Sprache",
+		"von HoubkneghteS (Adam Simons)"
+	),
+	ni = new LangData(
+		"Jír",
+		"Jírs",
+		"Gedodtets",
+		"Gebornets",
+		"Lodtael",
+		"Dodraet",
+		"Geberþraet",
+		"Immegratjon",
+		"Lodtaeldíagram",
+		"Geþerinfos",
+		"Optjons",
+		"Spagh",
+		"fom HoubkneghteS (Adam Simons)"
+	);
 
 //population array -- year by year
 var pop = [
@@ -206,7 +221,7 @@ function start(lang) {
 	else if (lang == "de") r = de;
 	else r = ni;
 
-	innerHtml("poppyramid", r.poppyramid);
+	innerHtml("poppyramid", r.pyramid);
 	innerHtml("stats", r.stats);
 	innerHtml("options", r.options);
 
