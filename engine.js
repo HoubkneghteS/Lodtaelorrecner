@@ -55,7 +55,7 @@ var de = new LangData(
 	"Sprache",
 	"von HoubkneghteS (Adam Simons)"
 );
-ni = new LangData(
+var ni = new LangData(
 	"Jír",
 	"Jírs",
 	"Gedodtets",
