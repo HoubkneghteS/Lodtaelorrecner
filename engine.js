@@ -21,6 +21,7 @@ class LangData {
 		this.pyramid = pyramid;
 		this.stats = stats;
 		this.options = options;
+		this.lang = lang;
 		this.credits = credits;
 	}
 }
